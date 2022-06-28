@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ hello world
+ <p sec:authentication="principal.username"></p>
+ <p sec:authentication="principal.authorities"></p>
+ <p sec:authentication="name"></p>
+ <p sec:authentication="authorities"></p>
+<p th:if="${#session.getId()}">a [[${#session.getId()}]]</p>
+<p th:if="${#authentication.principal}"> [[${#authentication.principal}]]</p>
+<p th:if="${#authentication.getPrincipal()}">a</p>
+<p th:if="${#authentication.getName()}">a</p>
+<p th:if="${#session.id}">a</p>
+</body>
+</html>

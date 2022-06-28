@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form th:action th:method="post" th:object="${signUpRequest}" >
+        <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">이메일</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="이메일을 입력하세요." />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="cols-sm-2 control-label">비밀번호</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="password" class="form-control" th:field="*{password}"  id="password" placeholder="비밀번호를 입력하세요" />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="cols-sm-2 control-label">이름</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" th:field="*{username}" id="name" placeholder="이름을 입력하세요" />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="nickname" class="cols-sm-2 control-label">닉네임</label>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" th:field="*{nickname}" id="nickname" placeholder="닉네임을 입력하세요" />
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}">Nickname Error</small>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">가입</button>
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

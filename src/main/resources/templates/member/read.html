@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<article>
+
+    <div class="container" role="main">
+        <h2>Member Info</h2>
+        <form class="form-group" th:method="post" th:action th:object="${memberDto}">
+            <div class="mb-3">
+                <label for="id">id</label>
+                <textarea type="text" class="form-control" name="id" id="id" readonly="readonly" th:text="*{id}"></textarea>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="email">email</label>
+                <textarea type="text" class="form-control" name="email" id="email" readonly="readonly" th:text="*{email}"></textarea>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="username">username</label>
+                <textarea type="text" class="form-control" name="username" id="username" readonly="readonly" th:text="*{username}"></textarea>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="nickname">nickname</label>
+                <textarea type="text" class="form-control" name="nickname" id="nickname" readonly="readonly" th:text="*{nickname}"></textarea>
+            </div>
+
+        </form>
+
+        <hr>
+
+        <hr>
+        <div >
+            <button type="btn" th:onclick="|location.href='@{/}'|" class="btn btn-default btn-lg btn3d right btnList">HOME</button>
+            <button type="btn" sec:authorize="isAuthenticated()"  th:onclick="|location.href='@{/}'|" class="btn btn-default btn-lg btn3d right btnList">DELETE</button>
+        </div>
+
+    </div>
+</article>
+</body>
+</html>
